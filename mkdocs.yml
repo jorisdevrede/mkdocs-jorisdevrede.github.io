@@ -1,0 +1,5 @@
+site_name: Personal Notes
+site_url: https://jorisdevrede.github.io
+theme:
+  name: material
+
