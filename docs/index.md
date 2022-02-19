@@ -1,1 +1,1 @@
-My personal notes on ideas and concepts worth mentioning.
+My personal notes on concepts worth mentioning.
