@@ -1,0 +1,13 @@
+site_name: Personal Notes
+site_url: https://jorisdevrede.github.io
+theme:
+  name: material
+nav:
+  - Architecture:
+    - Practice: architecture/practice.md
+  - Deep Work:
+    - Rules: deep-work/rules.md
+    - Types: deep-work/types.md
+  - Tech:
+    - Trusting TLS: tech/trust_tls.md
+
