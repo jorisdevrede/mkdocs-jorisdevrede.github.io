@@ -1,93 +1,77 @@
 # Trusting TLS
 
-TLS is one of the most used and, at the same time, one of the least understood
-technologies. Yes, it secures your connections, but how it does that seems to
-be a mystery. This leaves us susceptible to vague statements like "your credit
-cards will be stolen when you use self-signed certificates" and "turning off
-host verification will make your server vulnerable to hackers". Nobody knows,
-but it sounds scary, so it must be true. So what is the deal with TLS and is it
-really that scary?
+TLS is one of the most used and least understood technologies. It secures
+connections, but how seems a mystery. This leaves us with statements like "your
+credit card data will be stolen when you use self-signed certificates". Nobody
+knows, but it sounds scary enough so it must be true. Or is it?
 
-TLS has two functions<sup>*</sup>. The first is the encryption of data in 
-transit, and the second is providing trusted connections. Encryption is the main
-one. That is the reason we have TLS. Trust is an extra that has its use, but
-does not compare in importance to encryption. It is however the one that we get
-worked up about. Let's look at each function in isolation.
-
-<sup>_*Actually, TLS has more functions, but they pale in application compared to
-these two._</sup>
+TLS has two main functions. The first is encrypting data in transit. The second
+is providing trust on a public network. Encryption is the important one, but it
+is trust that we get worked up about.
 
 ## Encryption 
 
-TLS encrypts the TCP data packets between client and server. It does so by
-exchanging a symmetric key that both the client and the server use to encrypt
-and decrypt the packets. This ensures that only the client and server can read
-the data that they exchange, but that no other intermediate system on the
-network can eavesdrop. Of course there are complex details, but this is the
-essence and there really isn't more to it. Data is encrypted in transit. That
-is it.
+TLS encrypts TCP packets between client and server, using a key that only they
+know. This ensures that only the client and server can read the data they
+exchange. No intermediate can eavesdrop. The details are more complex, but this
+is the essence. Data is secured between the two parties. That is it.
+
+### Fail-fast
+
+This encryption is guaranteed, because TLS is a fail-fast protocol. If the
+communication cannot be encrypted, it will not happen. This contrary to the
+browser messages saying your connection *might* not be safe. These messages only
+apply to trust and never to encryption.
 
 ## Trust
 
-TLS can also provide a level of trust about the server that the client connects
-to using PKI certificates. The server provides the client a certificate that
-holds the address of the server and is signed by a third party, the Certificate
-Authority. This way, the client can verify independently that it is connecting
-to the intended server.
+TLS can also provide trust about the server that the client connects to. The
+server provides a certificate that holds the server address and is signed by a
+third party. The client can choose to trust the third party and its signed
+confirmation of the server address.
 
 ### Trust on the public network
 
-This trust function is relevant on an untrusted public network, where client
-traffic can be intercepted by another server that poses as the intended server.
-The client can then be tricked into divulging sensitive information, like a
-password or credit card information. The trust function verifies that the
-connecting server corresponds with the intended address.
+Trust is relevant on an untrusted network where client data can be intercepted
+by an intermediate system that poses as the intended server. The client can
+then be tricked into leaking sensitive information like password or credit
+card data. The trust function verifies that the server is the intended address.
 
-It is a useful function on an uncontrolled public network to provide assurance
-that the data reaches the intended recipient. On a controlled private network
-though, this is useless at best and is probably even an active hindrance. Here
-is why.
+In an uncontrolled network it is useful to assure that data is sent to the
+intended recipient. In a controlled network though, this is useless at best.
+Here is why.
 
 ### Commercial CA's
 
-Trust on a client, or more accurately "TLS host verification", works by first
-trusting the certificate of the Certificate Authority (CA) that signed the
-server certificate. By trusting the CA the client implicitly trusts all the
-server certificates it signs. This works well on the internet where our browsers
-and operating systems trust a list of commercial CA's by default and where we
-buy all the  public server certificates from these CA's. 
+Trust, or more accurately "TLS host verification", works by first trusting the
+certificate of the Certificate Authority (CA) that signed the server 
+certificate. This will let the client trust all the server certificates that
+the CA signs. Browsers and operating systems are preconfigured to trust a list
+of commercial CA's and server certificates are bought from these CA's.
 
-So because Google trusts a bunch of CA's and packages Chrome with their signing
-certificates, and the company whose website you're surfing has bought its server
-certificate from those CA's, you don't have to worry about your TLS
-configuration. How different that is on a private network.
+So because Chrome trusts a bundle of CA's and the site you are browsing has a
+certificate that is signed by one of those CA's, you don't have to worry about
+TLS. How different that is on a private network.
 
 ### Rolling your own
 
-Instead of using prepackaged commercial CA's, you can also create your own
-singing certificate. Technically, this provides the same level of trust and is
-cheaper, because you can make as many server certificates as you want for free.
-The downside of this solution is that you have to configure each client to trust
-your signing certificate for all the TLS-based connections to work. 
+Trusting a preconfigured commercial CA is no different from trusting a CA that
+you create yourself. It provides the same level of trust. The difference is
+that a certificate from your own CA is free, which makes it preferable over
+commercial CA's. The downside of this is that you have to configure each client
+to trust your CA. This configuration comes at a cost as well.
 
-That is when you should evaluate the trust function itself. Is there a chance
-that a client can connect to an unverified server and that it can thereby
-disclose sensitive information? If the answer is yes, then make the
-administrative investment of configuring each client to trust your signing
-certificate. If the answer is no on the other hand, then you might be better off
-with setting the 'host verification' parameter to 'false' in your TLS
-connections. It disables trust, relieves you off needless configuration and
-leaves only with its primary function; encryption of data in transit. No more,
-no less. 
+That is when you should evaluate trust itself. Is there a change that a client
+can connect to an unverified server? If so, make the investment of configuring
+each client with your CA. If not, then you are better off with turning host
+verification off in your TLS connections. It delegates trust to your known
+network and leaves you with encryption. No more, no less.
 
 ### But my browser says
 
-When you do decide that the servers can be trusted and that host verification
-has no added value in your particular context, there is always your browser
-that screams bloody murder when trying to connect to one of those servers. That
-is because TLS host verification was designed for the internet with
-non-technical users in mind. Don't be that end user and know that TLS is a fail
-fast protocol. Just click 'OK' and know that your connection is encrypted and
-safe.
-
+When you decide that servers are known and that host verfication has no added
+value in your particular context, there is still your browser that screams
+bloody murder. That is because TLS host verfication was designed for the
+internet with non-technical users in mind. Just click OK and know that your
+connection is encrypted and safe.
 
