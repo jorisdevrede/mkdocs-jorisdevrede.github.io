@@ -8,6 +8,8 @@ nav:
   - Deep Work:
     - Rules: deep-work/rules.md
     - Types: deep-work/types.md
+  - Systems Thinking:
+    - Security: systems/security.md
   - Tech:
     - Trusting TLS: tech/trust_tls.md
 

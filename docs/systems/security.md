@@ -1,26 +1,24 @@
 # IT Security
 
-The primary aspect of security for all software applications is the protection
-against misuse. If you view this "Protection Against Misuse" as a stock, then
-its inflows are the *hardening* of functionally intended use and the
-*patching* of functionally unintended use. The outflow is the discovery of
-unintended uses, or *vulnerabilities*.
+The focus of IT security is the protection against misuse of applications. If
+you view this "Protection Against Misuse" as a [stock](/docs/systems/index.md),
+then its inflows are the *hardening* of intended use and the *patching* of
+flaws that lead to unintended use. The outflow is the discovery of those
+flaws, or *vulnerabilities*.
 
 ## Hardening
 
-The measures you take to lower the attack surface of the application are
-called hardening. This means for example that you disable an administrative
-endpoint or limit the login attempts for an account. These are both intended
-functions (admin, login) of the application to which you limit it's access so
-it cannot be misused. The more you harden the application, the better it is
-protected.
+Taking measures to lower the attack surface of an application is called
+hardening. This means, for example, that you disable an administrative endpoint
+or limit the allowed login attempts. Both are intended functions of the
+application that you limit against misuse. The more you harden an application,
+the better it is protected against misuse.
 
 ## Vulnerabilities
 
-While failure to harden a function is also a vulnerability, we generally use
-the term for flaws in the code that open the application for unintended use.
-The discovery of these vulnerabilities will lower the protection of the
-application.
+While failure to harden is also a vulnerability, we generally use the term for
+flaws in the code that open the application for unintended use. The discovery
+of these vulnerabilities lower the protection of the application.
 
 Technically the vulnerability is already there, making the "Protection Against
 Misuse" stock as low as all the still unknown vulnerabilities subtracted from
@@ -36,13 +34,16 @@ then also subtracts from the protection of the application.
 
 When a vulnerability is known, the application developer can fix the flaw and
 provide a new version of the application. Installing this new version for the
-purpose removing the vulnerability is what we call patching.
+purpose of removing the vulnerability is what we call patching.
 
 We should strive to always have the latest patch version of an application
 installed as it will provide the highest protection possible.
 
-## Choose manual or automatic
+## Pentesting
 
-The sheer number of vulnerabilities that is found every day, makes it almost
-impossible to evaluate these individually and assess whether a patch is needed.
-Instead we need to automatically install whenever a patch becomes available.
+A penetration test, or pentest, is the feedback loop that measures the
+"Protection Against Misuse" stock by testing the hardening measures in place
+and the patches not in place. It can optionally be expanded to search for
+unknown vulnerabilities, discovering them during the test itself. This search
+is usually reserved for bespoke applications.
+
