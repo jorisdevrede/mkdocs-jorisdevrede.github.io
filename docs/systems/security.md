@@ -6,6 +6,8 @@ then its inflows are the *hardening* of intended use and the *patching* of
 flaws that lead to unintended use. The outflow is the discovery of those
 flaws, or *vulnerabilities*.
 
+![security system](../images/security_system.svg)
+
 ## Hardening
 
 Taking measures to lower the attack surface of an application is called
@@ -46,4 +48,3 @@ A penetration test, or pentest, is the feedback loop that measures the
 and the patches not in place. It can optionally be expanded to search for
 unknown vulnerabilities, discovering them during the test itself. This search
 is usually reserved for bespoke applications.
-
