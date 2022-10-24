@@ -1,7 +1,7 @@
 # IT Security
 
 The focus of IT security is the protection against misuse of applications. If
-you view this "Protection Against Misuse" as a [stock](/docs/systems/index.md),
+you view this "Protection Against Misuse" as a [stock](theory.md),
 then its inflows are the *hardening* of intended use and the *patching* of
 flaws that lead to unintended use. The outflow is the discovery of those
 flaws, or *vulnerabilities*.
