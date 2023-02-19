@@ -6,7 +6,7 @@ nav:
   - Knowledge Work:
     - knowledge-work/index.md
     - Books:
-      knowledge-work/books/index.md
+      - knowledge-work/books/index.md
     - Absorption Speed: knowledge-work/absorption-speed.md
     - Deep Work:
       - knowledge-work/deep-work/index.md
