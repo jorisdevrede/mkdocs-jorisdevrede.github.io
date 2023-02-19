@@ -24,8 +24,3 @@ have been an e-mail'.
 So opt for reading over listening when you need to take in information, and
 write your knowledge down so others can make that choice too. All it takes is a
 little focus.
-
-## How To / Next Steps
-
-- read Deep Work
-- 

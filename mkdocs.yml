@@ -2,6 +2,8 @@ site_name: Personal Notes
 site_url: https://jorisdevrede.github.io
 theme:
   name: material
+  features:
+    - navigation.indexes
 nav:
   - Knowledge Work:
     - knowledge-work/index.md
