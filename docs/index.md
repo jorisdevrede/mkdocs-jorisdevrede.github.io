@@ -1,1 +1,4 @@
-My personal notes on concepts worth mentioning.
+# jorisdevrede.github.io
+
+My personal notes on [knowledge work](knowledge-work/index.md), engineering, and
+architecture.
