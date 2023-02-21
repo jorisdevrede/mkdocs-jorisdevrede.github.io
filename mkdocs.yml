@@ -1,0 +1,29 @@
+site_name: Personal Notes
+site_url: https://jorisdevrede.github.io
+theme:
+  name: material
+  features:
+    - navigation.indexes
+markdown_extensions:
+  - attr_list
+nav:
+  - Knowledge Work:
+    - knowledge-work/index.md
+    - Books:
+      - knowledge-work/books/index.md
+    - Absorption Speed: knowledge-work/absorption-speed.md
+    - Deep Work:
+      - knowledge-work/deep-work/index.md
+      - Rules: knowledge-work/deep-work/rules.md
+      - Types: knowledge-work/deep-work/types.md
+    - Taking Notes: knowledge-work/taking-notes.md
+  - Engineering:
+    - engineering/index.md
+    - Trusting TLS: tech/trust_tls.md
+  - Architecture:
+    - architecture/index.md
+    - Practice: architecture/practice.md
+    - Systems Thinking:
+      - systems/index.md
+      - Security: systems/security.md
+
