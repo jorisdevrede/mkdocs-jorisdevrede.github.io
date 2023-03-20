@@ -25,5 +25,6 @@ nav:
     - Practice: architecture/practice.md
     - Systems Thinking:
       - systems/index.md
+      - Scrum Team: systems/scrum-team.md
       - Security: systems/security.md
 
